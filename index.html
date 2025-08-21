@@ -4,6 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nana AI <3</title>
+     <script>
+    // Title animation (typing effect)
+    const fullTitle = "Nana AI <3";
+    let index = 0;
+    let forward = true;
+
+    function animateTitle() {
+      if (forward) {
+        document.title = fullTitle.substring(0, index + 1);
+        index++;
+        if (index === fullTitle.length) {
+          forward = false;
+          setTimeout(animateTitle, 1000); // Pause when full text is shown
+          return;
+        }
+      } else {
+        document.title = fullTitle.substring(0, index - 1);
+        index--;
+        if (index === 0) {
+          forward = true;
+        }
+      }
+      setTimeout(animateTitle, 200);
+    }
+
+    window.onload = animateTitle;
+  </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
